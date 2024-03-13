@@ -35,5 +35,7 @@ kubectl describe pod <pod_name>
 kubectl logs <pod_name>
 
 #To access the web app, NodePort Service is accessible on each Worker Node's IP address
-
+#minikube ip
+OR
+#kubectl get node -o wide
 
