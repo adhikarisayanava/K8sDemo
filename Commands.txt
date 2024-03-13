@@ -1,0 +1,39 @@
+#To start minikube inside a docker container
+minikube start --driver docker
+
+#To check minikube status
+minikube status
+
+#kubectl comes with minikube
+kubectl get node
+
+#Template section inside yaml "Deployment" kind contains configuration for pods.It has its own "metdata" and "spec" section
+
+#You can give any K8s component a "label".Labels are "key/value" pairs that are attached to K8s resources.Labels are shared between pod replicas
+
+#"replicas" = how many pods you want to create
+
+#"selector" section in Service kind select pods to forward request to
+
+#Deploying all resources to minikube cluster(order is important here)
+kubectl apply -f mongo-config.yaml
+kubectl apply -f mongo-secret.yaml
+kubectl apply -f mongo.yaml
+kubectl apply -f webapp.yaml
+
+#To get all components deployed in a cluster
+kubectl get all
+kubectl get configmap
+kubectl get secret
+kubectl get <name_of_component>
+
+#To get detailed description:
+kubectl describe service <service_name>
+kubectl describe pod <pod_name>
+
+#To get logs
+kubectl logs <pod_name>
+
+#To access the web app, NodePort Service is accessible on each Worker Node's IP address
+
+
